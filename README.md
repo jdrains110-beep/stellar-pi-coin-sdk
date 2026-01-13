@@ -193,10 +193,50 @@ Ensure code adheres to Singularity Nexus level: Quantum security, AI evolution, 
 - Web UI for interdimensional wallet.
 - Quantum crypto library for ultimate security.
 
+## Triumph-Synergy Integration Layer
+
+This repository now includes the **Triumph-Synergy Integration Layer**, a modular financial ecosystem that enables seamless integration of the stellar-pi-coin-sdk with other smart contracts without modifying the original implementation.
+
+### Key Features
+- **Non-Invasive Integration**: Original stellar-pi-coin-sdk code remains unchanged
+- **Modular Architecture**: Easy addition of new smart contracts
+- **Unified Interface**: Consistent interaction patterns across all contracts
+- **Configuration-Based**: JSON configuration for contract management
+
+### Quick Start with Triumph-Synergy
+
+```python
+from triumph_synergy import IntegrationManager
+from triumph_synergy.adapters import StellarPiAdapter
+
+# Initialize the integration manager
+manager = IntegrationManager()
+
+# Create and register the Stellar Pi Coin adapter
+pi_adapter = StellarPiAdapter(
+    contract_id="YOUR_CONTRACT_ID",
+    network="testnet"
+)
+manager.register_adapter("stellar-pi-coin", pi_adapter)
+await manager.initialize_adapter("stellar-pi-coin")
+
+# Use the Pi Coin contract
+pi_coin = manager.get_contract("stellar-pi-coin")
+result = await pi_coin.mint(amount=1000, source="mining")
+```
+
+### Documentation
+- [Integration Architecture](triumph_synergy/docs/architecture.md)
+- [Adding New Contracts](triumph_synergy/docs/adding_contracts.md)
+- [Stellar Pi Coin Integration](triumph_synergy/docs/stellar_pi_integration.md)
+- [Usage Examples](triumph_synergy/examples/basic_usage.py)
+
+See the [Triumph-Synergy README](triumph_synergy/README.md) for complete documentation.
+
 ## Support
 
 - Issues: [GitHub Issues](https://github.com/KOSASIH/stellar-pi-coin-sdk/issues)
-- Docs: See `docs/`
+- Docs: See `docs/` and `triumph_synergy/docs/`
 
 ---
 

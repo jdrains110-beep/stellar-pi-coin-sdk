@@ -1,0 +1,28 @@
+{
+  "integration": {
+    "name": "Triumph-Synergy Integration Layer",
+    "version": "1.0.0",
+    "enabled": true
+  },
+  "settings": {
+    "auto_initialize_adapters": false,
+    "enable_health_checks": true,
+    "health_check_interval": 300,
+    "log_level": "INFO"
+  },
+  "networks": {
+    "testnet": {
+      "stellar_horizon": "https://horizon-testnet.stellar.org",
+      "stellar_network_passphrase": "Test SDF Network ; September 2015"
+    },
+    "mainnet": {
+      "stellar_horizon": "https://horizon.stellar.org",
+      "stellar_network_passphrase": "Public Global Stellar Network ; September 2015"
+    }
+  },
+  "features": {
+    "enable_metrics": true,
+    "enable_logging": true,
+    "enable_monitoring": false
+  }
+}
