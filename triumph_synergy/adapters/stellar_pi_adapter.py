@@ -49,9 +49,19 @@ class StellarPiAdapter(ContractAdapter):
         """
         try:
             # Import the original SDK (lazy import to avoid issues if dependencies aren't installed)
-            # Note: The actual import path may vary. Check src/ directory for the correct module name.
-            # Common paths: pi_coin_sdk, stellar_pi_sdk, or src.pi_coin_sdk
-            from pi_coin_sdk import SingularityPiSDK
+            # The actual SDK is in src/pi_coin_sdk.py and contains SingularityPiSDK class
+            # Try multiple possible import paths for flexibility
+            try:
+                # Try direct import if src is in Python path
+                from pi_coin_sdk import SingularityPiSDK
+            except ImportError:
+                # Try importing from src directory
+                import sys
+                from pathlib import Path
+                src_path = Path(__file__).parent.parent.parent / "src"
+                if str(src_path) not in sys.path:
+                    sys.path.insert(0, str(src_path))
+                from pi_coin_sdk import SingularityPiSDK
             
             # Initialize the SDK with configuration
             self.sdk = SingularityPiSDK(
