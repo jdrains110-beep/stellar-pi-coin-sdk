@@ -1,11 +1,12 @@
 {
+  "_comment": "Contract Registry Configuration - Update contract_id with your deployed Stellar/Soroban contract ID (56 characters)",
   "contracts": {
     "stellar-pi-coin": {
       "name": "Stellar Pi Coin",
       "type": "stablecoin",
       "version": "1.0.0",
       "description": "Hyper-tech stablecoin with fixed value of 1 PI = $314,159",
-      "contract_id": "CHANGEME_YOUR_CONTRACT_ID",
+      "contract_id": "CHANGEME_YOUR_STELLAR_CONTRACT_ID_56_CHARS",
       "network": "testnet",
       "adapter_class": "triumph_synergy.adapters.stellar_pi_adapter.StellarPiAdapter",
       "original_author": "Kosasih (KOSASIH)",

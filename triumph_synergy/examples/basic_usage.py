@@ -40,8 +40,10 @@ async def main():
     # Step 2: Create and Register the Stellar Pi Coin Adapter
     logger.info("\n2. Creating Stellar Pi Coin Adapter...")
     
-    # Note: Replace with your actual contract ID
-    contract_id = "YOUR_PI_COIN_CONTRACT_ID"
+    # Note: Replace with your actual Stellar/Soroban contract ID
+    # Contract IDs are typically 56-character strings (e.g., "CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    # You can obtain this by deploying the Pi Coin contract to Stellar testnet/mainnet
+    contract_id = "YOUR_PI_COIN_CONTRACT_ID_56_CHARS"
     network = "testnet"
     
     pi_adapter = StellarPiAdapter(
@@ -103,8 +105,10 @@ async def main():
     # Step 7: Transfer Pi Coins
     logger.info("\n7. Transferring Pi Coins...")
     try:
+        # Note: Replace with a valid Stellar address (starts with G, 56 chars)
+        # Example format: GXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         transfer_result = await pi_coin.transfer(
-            to_address="GA_EXAMPLE_RECIPIENT_ADDRESS",
+            to_address="GA_EXAMPLE_RECIPIENT_ADDRESS_56_CHARS",
             amount=500,
             coin_id=b"example_coin_id"
         )
@@ -115,10 +119,12 @@ async def main():
     # Step 8: Bridge to Another Chain
     logger.info("\n8. Bridging to Ethereum...")
     try:
+        # Note: Replace with a valid Ethereum address (42 chars: 0x + 40 hex chars)
+        # Example format: 0x1234567890123456789012345678901234567890
         bridge_result = await pi_coin.bridge_to(
             dimension="ETH",
             amount=200,
-            to="0xEXAMPLE_ETH_ADDRESS"
+            to="0x0000000000000000000000000000000000000000"
         )
         logger.info(f"   ✓ Bridge result: {bridge_result}")
     except Exception as e:
